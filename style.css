@@ -1,17 +1,50 @@
+/* =======================
+   RESET & BASE
+======================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
+    font-family: Arial, sans-serif;
+    color: white;
     background: url("exemple.png") center top no-repeat;
     background-size: cover;
-    color: white;
 }
 
-/* ===== HEADER ===== */
+/* =======================
+   GLASS BLOCK (REBORDS)
+======================= */
+
+.glass {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    clip-path: polygon(
+        28px 0%,
+        100% 0%,
+        100% calc(100% - 28px),
+        calc(100% - 28px) 100%,
+        0% 100%,
+        0% 28px
+    );
+}
+
+.glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    clip-path: inherit;
+    pointer-events: none;
+}
+
+/* =======================
+   HEADER
+======================= */
 
 .top-bar {
     height: 80px;
@@ -19,7 +52,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 50px;
 }
 
 .top-bar h1 {
@@ -32,7 +65,9 @@ body {
     height: 40px;
 }
 
-/* ===== HERO ===== */
+/* =======================
+   HERO SECTION
+======================= */
 
 .hero {
     padding: 80px 0;
@@ -41,48 +76,55 @@ body {
 .hero-box {
     width: 1000px;
     margin: auto;
-    background: rgba(0,0,0,0.6);
     display: flex;
-    padding: 40px;
     gap: 40px;
 }
 
 .profile {
     width: 260px;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .hero-text h2 {
     margin-bottom: 20px;
+    font-size: 26px;
 }
 
 .hero-text p {
     margin-bottom: 15px;
     line-height: 1.6;
+    font-size: 16px;
 }
+
+/* =======================
+   BUTTONS
+======================= */
 
 .btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 26px;
-    background: #e8c58c;
+    padding: 12px 28px;
+    background: #e7c48a;
     color: black;
-    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
+    border-radius: 30px;
 }
 
-/* ===== SECTIONS TITLES ===== */
+/* =======================
+   SECTION TITLES (GLASS)
+======================= */
 
 .section-title {
     display: inline-block;
-    background: rgba(0,0,0,0.7);
-    padding: 10px 30px;
-    font-size: 22px;
     margin-bottom: 40px;
+    font-size: 22px;
+    padding: 12px 32px;
 }
 
-/* ===== PROJECTS ===== */
+/* =======================
+   PROJECTS
+======================= */
 
 .projects {
     width: 1100px;
@@ -104,10 +146,13 @@ body {
 .see-more {
     margin-top: 20px;
     text-align: right;
+    font-size: 14px;
     opacity: 0.8;
 }
 
-/* ===== DRAWING ===== */
+/* =======================
+   DRAWING SECTION
+======================= */
 
 .drawing {
     width: 1100px;
@@ -127,11 +172,16 @@ body {
     border-radius: 6px;
 }
 
+/* =======================
+   UTILS
+======================= */
+
 .center {
     display: block;
     width: fit-content;
     margin: auto;
 }
+
 
 
 
